@@ -66,24 +66,26 @@ bool PlaceQueen(int column) {
 
 			// FIXME: Check if this row has already been assigned
 			//        If RowPlacement[row] is not UNASSIGN_VALUE, we want to move to the next row
-			
+			if (RowPlacement[row] != -1)
+				continue;
 
 			// Check if assigning a column queen to this row is valid
 			if (!ValidPosition(column, row)) // a diagonal invalidates this position
 				continue;
 
 			// FIXME: Assign column to Row[row]
-			
+			RowPlacement[row] = column;
 
 			// FIXME: Recursively call PlaceQueen to place a queen in the next column.
 			//        Remember to check if the recursive call to placing the queen in the next column 
 			//        was successful, i.e. it returned true.
 			//        If it was successful, you can assume the assigment of this column's queen 
 			//        to RowPlacement[row] was also successful, and hence return true here.
-			
+			if (PlaceQueen(column + 1) == true)
+				return true;
 
 			// FIXME: Unassign the assignment of the column's queen to this row, and try the next one
-
+			RowPlacement[row] = -1;
 		}
 		return false; // Tried every available row, so it is time to call it quits
 	}
