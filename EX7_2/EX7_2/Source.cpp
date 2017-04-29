@@ -1,3 +1,13 @@
+/*******************
+*
+* Sam Holzer
+*
+* Exam 2
+*
+* Last Modified 4/28/2017
+*
+********************/
+
 /**
 *	Eight-Queens Problem
 *	Reading: 7.5
